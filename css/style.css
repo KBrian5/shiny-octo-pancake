@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600&display=swap');
+
+body {
+    font-family:'Gemunu Libre', sans-serif;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyNJxgPmz5iU6tp2OvgobYqG-Zxnz6Je8vruNS0mo6&s');
+}
+
+.solid-bg {
+    background-color: green;  
+    color: white;
+}
+.maintxt {
+    position: relative;
+  }
+.maintxt > img,
+  .overlay-text {
+    position: absolute;
+    color:white;
+  }

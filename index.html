@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>IndiaLab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./css/style.css">
+    
+
+</head>
+
+<body>
+    <!-- navbar things -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li>
+                <a class="navbar-brand active" href="#">Kevin Salgado</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link active" target="_blank" href="https://github.com/KBrian5/reimagined-memory/tree/main">See the Code!</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" target="_blank" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fkbrian5.github.io%2Freimagined-memory%2F">Check page validity!</a>
+            </li>
+        </ul>
+
+    </nav>
+     <!-- sub title -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-md-1 col-md-6">
+                <h1 class="solid-bg">Welcome to the Payment Page</h1>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- card stuff -->
+        <div class="row">
+            <div class="col-md-6 offset-md-1 tab-content">
+                <div class="tab-pane active container-fluid card" id="dev-stuff">
+
+                    <div class="card-body">
+                
+                        <h4 class="card-title"> Complete the following!
+                        </h4>
+                        <p class="card-text">Enter Info:</p>
+                        <!-- form for user info entry -->
+                        <form>
+                          <label for="fname"><b>First name:</b></label><br>
+                          <input type="text" id="fname" name="fname" required><br>
+                          <p></p>
+
+                          <label for="lname"><b>Last name:</b></label><br>
+                          <input type="text" id="lname" name="lname" required><br>
+                          <p></p>
+                           
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" placeholder="jsmith@gmail.com"><br><br>
+
+                            <label for="phone">Phone #:</label>
+                            <input type="number" id="phone" name="phone" placeholder="### ###-####" required><br><br>
+
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date"><br><br>
+
+                            <label for="time">Time:</label>
+                            <input type="time" id="time" name="time"><br><br>
+
+                            <label for ="ccard"><b>Credit Card:</b></label><br>
+                            <input type="text" id="ccard" name="ccard" required><br>
+                            <p></p>
+
+                            <label for="ssn">SSN:</label>
+                            <input type="password" id="ssn" name="ssn" placeholder="###-###-####" required><br><br>
+
+                            <label for="car"><b>Do you own a car?:</b></label>
+                            <select name="car" id="car">
+                              <option value="blank"> </option>
+                              <option value="yes">Yes</option>
+                              <option value="no">No</option>
+                            </select><br>
+                           <p></p>
+
+                            <p><b>What type of car would you like?:</b></p>
+                                  <input type="radio" id="car1" name="cars" value="1car">
+                                  <label for="car1"> Nissan Altima</label><br>
+                                  <input type="radio" id="car2" name="cars" value="2car">
+                                  <label for="car2"> Toyota Camry</label><br>
+                                  <input type="radio" id="car3" name="cars" value="3car">
+                                  <label for="car3">Ford Fusion</label>
+                                  <br>
+
+                            <p><b>What color would you like?</b><br></p>
+                                  <input type="checkbox" id="item1" name="item1" value="red">
+                                  <label for="item1"> Red</label><br>
+                                  <input type="checkbox" id="item2" name="item2" value="black">
+                                  <label for="item2"> Black</label><br>
+                                  <input type="checkbox" id="item3" name="item3" value="silver">
+                                  <label for="item3"> Silver</label><br>
+                                 <br>
+
+                            
+                            
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset"><br><br>
+                           
+                            
+                            <div class="navitem">
+
+                                <button id="btnLoadData" class="btn btn-secondary">Click to load JSON</button>
+                          
+                              <br>
+                            <p id = formOutput></p>
+
+                            
+                          </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+               
+
+           
+        </div>
+    
+    <!-- footer goes here  -->
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/ajax.js"></script>
+
+</body>
+
+</html>
