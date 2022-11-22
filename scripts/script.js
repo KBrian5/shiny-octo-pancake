@@ -1,99 +1,88 @@
+// my fav data
+  let userJSON = {
+    fname: "Kevin",
+    lname: "Salgado",
+    email: "ksalgado@una.edu",
+    car:   "$15,000,000",
+    phone: "256-332-5190"
+  };
+// load my fav data
+  $("#loadData").click(() => {
 
+    $("#fname").val(userJSON.fname);
 
+    $("#lname").val(userJSON.lname);
 
+    $("#email").val(userJSON.email);
 
-  //These 2 functions prevent spaces in the name box
-  $("#fname").blur(function () {
-    let inputVal = $(this).val();
-    //initialize an string variable that represents a space
-    let strSpace = " ";
-    let spaceCount = inputVal.split(" ").length - 1;
+    $("#car").val(userJSON.car);
 
-    console.log(spaceCount);
-    if (spaceCount === 0) {
-      $(this).next().next().text("This Entry is Valid!");
-    } else if (spaceCount > 0) {
-      $(this).next().next().text("NO spaces are allowed in First Name!");
-    }
-  });
-
-  $("#lname").blur(function () {
-    let inputVal = $(this).val();
-    //initialize an string variable that represents a space
-    let strSpace = " ";
-    let spaceCount = inputVal.split(" ").length - 1;
-
-    console.log(spaceCount);
-    if (spaceCount === 0) {
-      $(this).next().next().text("This Entry is Valid!");
-    } else if (spaceCount > 0) {
-      $(this).next().next().text("NO spaces allowed in Last Name!");
-    }
+    $("#phone").val(userJSON.phone);
   });
 
 
-  //prevents leters being typed into the credit card box
-  $("#ccard").keyup(function (e) {
-    e.preventDefault();
-    this.value = this.value.replace(/[^0-9\.]/g, "");
-    $(this).next().next().text("Please do not enter letters");
-  });
-
-
-  //provides a response based on whether or not the person has their own car
-  $("#car").on("change", function (e) {
-    $("#car").prop("disabled", false);
-
-    let inputVal = this.value;
-
-    console.log(inputVal);
-
-    if (inputVal=== 'yes' ) {
-      $(this).next().next().text("I'm Happy for You!");
+  // getting submit button after verification
+function myFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("myCheck");
+    // Get the output text
+    var text = document.getElementById("submitButton");
+  
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      text.style.display = "block";
     } else {
-      $(this).next().next().text("Don't Worry I'll Help You Find the Perfect Car!");
+      text.style.display = "none";
     }
+  }
 
+  // radio button for dependant input
+  $("input[type=radio]").on("change", function () {
+
+    let radioChoice = $("input[type=radio]:checked").val(); // Yes or No
+    let newList = getAge(radioChoice);
+
+    let optionList = "";
+
+    for (i = 0; i < newList.length; i++) {
+      optionList += `<option value=" ${newList[i]} ">${newList[i]} </option>`;
+    }
+    $("#carSelect").empty().append(optionList);
   });
 
-    
-    
-    
-    
-    
-    
-    
-    //Creates submit button
-      $( ":submit" ).css( "background", "green" );
-  
-  
-   
-  // Function to submit form. Takes first and last name and says thank you
-  
-      $( ":submit" ).click( function(e) {
-  
-        e.preventDefualt; 
-      
-        console.log('did we click the bbutton? yes!') ; 
-  
-        let greetingOutput = 'Thank you for your business ';
-        greetingOutput += $("#fname").val(); 
-        
-       
-      
-        $("#formOutput").text(greetingOutput); 
-      
-      }); 
+  $("#submitForm").on("click", (e) => {
+    e.preventDefault();
 
-      console.log("user name: " + $("#noSpaces").val());
+    // get data from an input
 
-      // end of doc ready f/n
-   
-  
-  
-  
-   
-  
-  
-  
-   
+    let dataStuff = `{ "letterSelected:" " ${$(
+      "input[type=radio]:checked"
+    ).val()} " }`;
+
+    console.log(dataStuff);
+  });
+
+// gets your answer from radio button and then displays correct options for dropdown
+function getAge(choice) {
+
+  let yesArray = ["Choose the car you would like to own!", "Toyota Corolla", "Nissan Altima", "Ford Fusion", "Honda Accord"];
+  let noArray= ["Thanks for coming to visit us!"]
+
+  if (choice === "yes") {
+    return yesArray; }
+  else if (choice === "no") {
+    return noArray; } 
+  else {
+    return ["Thank you"];
+  }
+}
+
+// submit event
+$(document).ready(function () {
+  $("#greetingOutput").text("");
+
+  $("#submitButton").click(function () {
+    $("#greetingOutput").text("Hello, " + $("#fname").val() + "! Congratulations on your new" + $("#carSelect").val() + "!" + " We hope to see you back!");
+  });
+});
+
